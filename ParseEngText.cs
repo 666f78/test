@@ -2,8 +2,8 @@
 
 namespace ParseMusicSite
 {
-    class ParseEngText : IParseLang 
-    { 
+    class ParseEngText : IGetData
+    {
         public HtmlNodeCollection ParseText(HtmlDocument doc) => doc.DocumentNode.SelectNodes("//*[@class='original']");
     }
 }

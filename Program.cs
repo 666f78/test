@@ -17,13 +17,8 @@ namespace ParseMusicSite
         static void SiteParse(string url)
         {            
             var htmlWeb = new HtmlWeb();
-            var doc = htmlWeb.Load(url);
 
-            var parse = new ParseText();
-
-            parse.engLang = new ParseEngText().ParseText(doc);
-            parse.ruLang = new ParseRuText().ParseText(doc);
-
+            var parse = new ParseText(htmlWeb.Load(url));               
             parse.ShowText();
         }
 

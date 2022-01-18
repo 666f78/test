@@ -7,11 +7,17 @@ using HtmlAgilityPack;
 
 namespace ParseMusicSite
 {
-    class ParseText
+    public class ParseText : IParseLang
     {
-        public HtmlNodeCollection engLang { get; set; }
-        public HtmlNodeCollection ruLang { get; set; }
 
+        private HtmlNodeCollection engLang { get; set; }
+        private HtmlNodeCollection ruLang { get; set; }
+
+        public ParseText(HtmlDocument doc) { 
+            engLang = new ParseEngText().ParseText(doc);
+            ruLang = new ParseRuText().ParseText(doc);
+
+        }
         public void ShowText() {
 
             for (int i = 0; i < engLang.Count; i++)
