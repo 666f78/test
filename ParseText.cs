@@ -3,16 +3,14 @@ using HtmlAgilityPack;
 
 namespace ParseMusicSite
 {
-    public class ParseText : IParseLang
+    class ParseText : IParseLang
     {
-
         private HtmlNodeCollection engLang { get; set; }
         private HtmlNodeCollection ruLang { get; set; }
 
-        public ParseText(HtmlDocument doc) { 
-            engLang = new ParseEngText().ParseText(doc);
-            ruLang = new ParseRuText().ParseText(doc);
-
+        public ParseText(IGetData en, IGetData ru) {
+            engLang = en.ParseText();
+            ruLang = ru.ParseText();
         }
         public void ShowText() {
 
@@ -21,7 +19,6 @@ namespace ParseMusicSite
                 string text = $"{engLang[i].InnerText.Replace("\n", "").Replace("\t", "")}\n{ruLang[i].InnerText.Replace("\n", "").Replace("\t", "")}\n";
                 Console.WriteLine(text);
             }
-
         }
     }
 }
