@@ -1,7 +1,4 @@
 ﻿using HtmlAgilityPack;
-using OpenQA.Selenium.Appium;
-using OpenQA.Selenium.Appium.Windows;
-using System;
 using System.Text;
 
 namespace ParseMusicSite

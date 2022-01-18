@@ -1,6 +1,4 @@
-﻿using HtmlAgilityPack;
-
-namespace ParseMusicSite
+﻿namespace ParseMusicSite
 {
     interface IParseLang
     {
